@@ -231,11 +231,10 @@ elseif(MSVC)
   # Intel vector extensions.
   if (CMAKE_CL_64)
     set(FLAGS_ENABLE_SSE2 /D__SSE2__)
-    set(FLAGS_ENABLE_SSE4 /D__SSE2__ /D__SSE3__ /D__SSE4_1__)
   else()
     set(FLAGS_ENABLE_SSE2 /D__SSE2__ /arch:SSE2)
-    set(FLAGS_ENABLE_SSE4 /D__SSE2__ /D__SSE3__ /D__SSE4_1__ /arch:SSE2)
   endif()
+  set(FLAGS_ENABLE_SSE4  /D__SSE2__ /D__SSE3__ /D__SSE4_1__ /arch:AVX)
   set(FLAGS_ENABLE_AVX  /D__SSE2__ /D__SSE3__ /D__SSE4_1__ /D__AVX__ /arch:AVX)
   set(FLAGS_ENABLE_FMA4 /D__SSE2__ /D__SSE3__ /D__SSE4_1__ /D__AVX__ /D__AVX2__ /D__FMA4__ /arch:AVX2)
   set(FLAGS_ENABLE_AVX2 /D__SSE2__ /D__SSE3__ /D__SSE4_1__ /D__AVX__ /D__AVX2__ /arch:AVX2)
@@ -391,7 +390,7 @@ endif()
 
 # AVX
 
-option(ENFORCE_AVX "Disable AVX" OFF)
+option(DISABLE_AVX "Disable AVX" OFF)
 option(ENFORCE_AVX "Build fails if AVX is not supported by the compiler" OFF)
 
 if(SLEEF_ARCH_X86 AND NOT DISABLE_AVX)

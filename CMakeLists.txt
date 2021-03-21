@@ -92,6 +92,7 @@ cmake_minimum_required(VERSION 3.4.3)
 
 if(${CMAKE_VERSION} VERSION_GREATER "3.14.99")
   cmake_policy(SET CMP0091 NEW)
+  cmake_policy(SET CMP0069 NEW)
 endif()
 
 enable_testing()
@@ -118,11 +119,11 @@ project(SLEEF VERSION ${SLEEF_VERSION} LANGUAGES ${LANGLIST})
 include(GNUInstallDirs)
 
 if(NOT DEFINED sleef_SOURCE_DIR)
-   set(sleef_SOURCE_DIR ${CMAKE_SOURCE_DIR})
+   set(sleef_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
 
 if(NOT DEFINED sleef_BINARY_DIR)
-   set(sleef_BINARY_DIR ${CMAKE_BINARY_DIR})
+   set(sleef_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 # Sanity check for in-source builds which we do not want to happen
