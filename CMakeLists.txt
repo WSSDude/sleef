@@ -123,7 +123,7 @@ if(NOT DEFINED sleef_SOURCE_DIR)
 endif()
 
 if(NOT DEFINED sleef_BINARY_DIR)
-   set(sleef_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
+   set(sleef_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR} CACHE INTERNAL "sleef_BINARY_DIR")
 endif()
 
 # Sanity check for in-source builds which we do not want to happen
